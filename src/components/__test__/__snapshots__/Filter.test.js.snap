@@ -1,0 +1,155 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`filter section renders filter section 1`] = `
+<div>
+  <form
+    data-testid="search-logger-form"
+  >
+    <div
+      class="searchContainer"
+    >
+      <div
+        class="m-2"
+      >
+        <label>
+          Log ID
+        </label>
+        <input
+          class="form-control"
+          data-testid="log-id"
+          name="logId"
+          type="text"
+          value=""
+        />
+      </div>
+      <div
+        class="m-2"
+      >
+        <label>
+          Application Type
+        </label>
+        <select
+          class="form-control"
+          data-testid="application-type"
+          name="applicationType"
+        >
+          <option
+            value=""
+          >
+            Select Application Type
+          </option>
+          <option
+            value="LEASE_REGISTRATION"
+          >
+            LEASE_REGISTRATION
+          </option>
+          <option
+            value="ADD_COMPANY_EMPLOYEE"
+          >
+            ADD_COMPANY_EMPLOYEE
+          </option>
+          <option
+            value="CERT_PROP_OWNERSHIP"
+          >
+            CERT_PROP_OWNERSHIP
+          </option>
+        </select>
+      </div>
+      <div
+        class="m-2"
+      >
+        <label>
+          Application Id
+        </label>
+        <input
+          class="form-control"
+          data-testid="application-id"
+          name="applicationId"
+          type="text"
+          value=""
+        />
+      </div>
+      <div
+        class="m-2"
+      >
+        <label>
+          Action Type
+        </label>
+        <select
+          class="form-control"
+          data-testid="action-type"
+          name="actionType"
+        >
+          <option
+            value=""
+          >
+            Select Action Type
+          </option>
+          <option
+            value="SUBMIT_APPLICATION"
+          >
+            SUBMIT_APPLICATION
+          </option>
+          <option
+            value="ADD_EMPLOYEE"
+          >
+            ADD_EMPLOYEE
+          </option>
+          <option
+            value="INITIATE_APPLICATION"
+          >
+            INITIATE_APPLICATION
+          </option>
+        </select>
+      </div>
+      <div
+        class="m-2"
+      >
+        <label>
+          From Date
+        </label>
+        <div
+          class="react-datepicker-wrapper"
+        >
+          <div
+            class="react-datepicker__input-container"
+          >
+            <input
+              class="form-control"
+              type="text"
+              value=""
+            />
+          </div>
+        </div>
+      </div>
+      <div
+        class="m-2"
+      >
+        <label>
+          To Date
+        </label>
+        <div
+          class="react-datepicker-wrapper"
+        >
+          <div
+            class="react-datepicker__input-container"
+          >
+            <input
+              class="form-control"
+              type="text"
+              value=""
+            />
+          </div>
+        </div>
+      </div>
+      <button
+        class="btn btn-info"
+        data-testid="search-logger"
+        type="submit"
+      >
+        Search Logger
+      </button>
+    </div>
+  </form>
+</div>
+`;

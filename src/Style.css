@@ -1,0 +1,20 @@
+.pageNum {
+    padding: 10px;
+    color: blue;
+    cursor: pointer;
+    font-size: 13px;
+}
+
+.activePage {
+    color: black;
+    font-size: 20px;
+    border-bottom: 2px solid;
+    font-weight: bold;
+}
+.searchContainer {
+    display: flex;
+    flex-direction: row;
+}
+body{
+    font-size: 15px;;
+}

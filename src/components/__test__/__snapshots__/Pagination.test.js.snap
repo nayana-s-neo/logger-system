@@ -1,0 +1,66 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`pagination section renders pagination section 1`] = `
+<div>
+  <span
+    class="pageNum activePage"
+    data-testid="page-test-id1"
+  >
+    1
+  </span>
+  <span
+    class="pageNum "
+    data-testid="page-test-id2"
+  >
+    2
+  </span>
+  <span
+    class="pageNum "
+    data-testid="page-test-id3"
+  >
+    3
+  </span>
+  <span
+    class="pageNum "
+    data-testid="page-test-id4"
+  >
+    4
+  </span>
+  <span
+    class="pageNum "
+    data-testid="page-test-id5"
+  >
+    5
+  </span>
+  <span
+    class="pageNum "
+    data-testid="page-test-id6"
+  >
+    6
+  </span>
+  <span
+    class="pageNum "
+    data-testid="page-test-id7"
+  >
+    7
+  </span>
+  <span
+    class="pageNum "
+    data-testid="page-test-id8"
+  >
+    8
+  </span>
+  <span
+    class="pageNum "
+    data-testid="page-test-id9"
+  >
+    9
+  </span>
+  <span
+    class="pageNum "
+    data-testid="page-test-id10"
+  >
+    10
+  </span>
+</div>
+`;
