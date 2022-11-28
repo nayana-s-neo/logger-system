@@ -1,6 +1,6 @@
 This project is deployed to below link:
 
-Live Deployed App Url: https://whimsical-douhua-9d1c72.netlify.app/logger
+https://teal-cheesecake-d55d45.netlify.app/
 
 ## Steps to run project:
 
