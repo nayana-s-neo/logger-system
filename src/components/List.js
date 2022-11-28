@@ -1,5 +1,5 @@
 import React, { useCallback, useEffect, useState } from 'react';
-import { useSearchParams, useLocation} from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import axios from 'axios';
 import Pagination from './Pagination';
 import Filter from './Filter';
@@ -31,7 +31,6 @@ function List() {
         method : "get",
         url : "https://run.mocky.io/v3/a2fbc23e-069e-4ba5-954c-cd910986f40f"
       }).then((response) => {
-        console.log(response);
         const dataSet = response?.data?.result?.auditLog
         //application types array
         const applicationTypes = [...new Set(dataSet.map(item => item.applicationType))];
