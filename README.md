@@ -1,8 +1,8 @@
-# Getting Started with Create React App
+This project is deployed to below link:
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Live Deployed App Url: https://whimsical-douhua-9d1c72.netlify.app/logger
 
-## Available Scripts
+## Steps to run project:
 
 In the project directory, you can run:
 
