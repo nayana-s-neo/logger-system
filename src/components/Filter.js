@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import {useNavigate,useLocation} from "react-router-dom";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
@@ -9,21 +9,37 @@ function Filter({applicationTypes, actionTypes, resetSearch, getNewDate}) {
     const [toDate, setToDate] = useState();
     let navigate = useNavigate();
     let currentPath  = useLocation();
-    let path = currentPath.pathname;
+    let path = currentPath.search;
     const query = new URLSearchParams(path);
+    useEffect(() => {
+      if(query.get('fromDate'))
+          setFromDate(new Date(query.get('fromDate')));
+      if(query.get('toDate'))
+        setToDate(new Date(query.get('toDate')));  
+    },[path]);
+
+
     const handleNavigation = (event) => {
         const formData = new FormData(event.currentTarget);
         event.preventDefault();   
-        let urlStr = ""; 
+        let urlStr = "?"; 
         for (let [key, value] of formData.entries()) {
           if(value)
-            urlStr = urlStr + '&'+key+"="+value;
+          {
+            if(urlStr.length === 1 && urlStr === '?')
+              urlStr = urlStr +key+"="+value;
+            else
+              urlStr = urlStr + '&'+key+"="+value;
+          } 
         }
         if(fromDate && toDate)
         {
-            urlStr = urlStr+"&fromDate="+getNewDate(fromDate)+"&toDate="+getNewDate(toDate);
+            if(urlStr.length === 1 && urlStr === '?')
+              urlStr = urlStr+"fromDate="+getNewDate(fromDate)+"&toDate="+getNewDate(toDate);
+            else
+              urlStr = urlStr+"&fromDate="+getNewDate(fromDate)+"&toDate="+getNewDate(toDate);
         }
-        navigate(urlStr);
+        navigate("/logger"+urlStr);
       }
   return (
     <form data-testid="search-logger-form" onSubmit={handleNavigation}> 

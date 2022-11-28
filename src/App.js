@@ -1,12 +1,18 @@
+import {Route,BrowserRouter as Router, Routes} from "react-router-dom";
 import './App.css';
 import List from './components/List';
-import './Style.css';
 
 function App() {
   return (
     <div className="App">
       <h2>Logger System</h2>
-      <List/>
+      <Router>
+        <Routes>
+          <Route  path='/' element={<List />} />
+          <Route  path='/logger' element={<List />} />
+        </Routes>
+      </Router>
+     
     </div>
   );
 }

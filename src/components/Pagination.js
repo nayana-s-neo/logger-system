@@ -17,7 +17,7 @@ function Pagination({recordCount,perPage,getRecords}) {
         {
             pages.map((page) => {
                 let activeClass  = "";
-                if(page == activePage)
+                if(page === activePage)
                     activeClass = "activePage";
                 return(
                     <span key={page} data-testid={`page-test-id${page}`} className={`pageNum ${activeClass}`} onClick = { () => displayRecords(page)} >{page}</span>

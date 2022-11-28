@@ -1,9 +1,10 @@
 import React, { useCallback, useEffect, useState } from 'react';
 import { useLocation } from "react-router-dom";
 import axios from 'axios';
+import '../styles/Style.css';
 import Pagination from './Pagination';
 import Filter from './Filter';
-import {sortResults,sorting} from './Sort';
+import {sortResults,sorting} from '../utilities/Sort';
 
 function List() {
     const [currentPage, setCurrentPage] = useState(1);
@@ -17,7 +18,7 @@ function List() {
     const [noResult, setNoResult] = useState(false);
     let search  = useLocation();
     const perPage = 10;
-    let currentPath;
+    let searchParams;
 
     //function to format date
     const getNewDate = (dt) => {
@@ -35,7 +36,7 @@ function List() {
         //application types array
         const applicationTypes = [...new Set(dataSet.map(item => item.applicationType))];
         const appTypes = applicationTypes.filter((item) => {
-          return item != null;
+          return item !== null;
         })
         setApplicationTypes(appTypes);
 
@@ -79,15 +80,15 @@ function List() {
       setLogger(loggerDataSet);
     }
     useEffect(() => {
-      currentPath = search.pathname;
+      searchParams = search.search;
       handleSubmit(logger);
    }, [search]);
 
     //function to filter results 
     const handleSubmit = (data) => {
-      if(search.pathname.length > 1)
+      if(searchParams.length > 1)
       {
-      const query = new URLSearchParams(currentPath);
+      const query = new URLSearchParams(searchParams);
           let searchData = data.filter(item => {
             let formLength = 0;
             let matchItem = 0;
@@ -95,18 +96,8 @@ function List() {
               if(value)
               {
                   formLength++;    
-                  if(item['creationTimestamp']) //code to handle start & end date filterring
-                  {
-                    let newDt = getNewDate(item['creationTimestamp']);
-                    let fromNewDt = query.get('fromDate');
-                    let toNewDt = query.get('toDate');
-                    if(newDt >= fromNewDt && newDt <= toNewDt)
-                    {
-                      matchItem++;
-                    }
-                        
-                  } 
-                  if(isNaN(value) && !item['creationTimestamp']) //filtering alphanumeric
+
+                  if(isNaN(value)) //filtering alphanumeric
                   {
                     if(item[key])
                     {
@@ -127,9 +118,20 @@ function List() {
                     }
 
                   }
+                  if(key === "fromDate" || key === 'toDate') //code to handle start & end date filterring
+                  {
+                    let newDt = getNewDate(item['creationTimestamp']);
+                    let fromNewDt = query.get('fromDate');
+                    let toNewDt = query.get('toDate');
+                    if(newDt >= fromNewDt && newDt <= toNewDt)
+                    {
+                      matchItem++;
+                    }
+                        
+                  } 
               }
             }
-            if (matchItem == formLength) 
+            if (matchItem === formLength) 
             {
               return item;
             }   
@@ -152,6 +154,7 @@ function List() {
       }
     }
     else {
+        setNoResult(false);
         setRecordCount(logger.length);
         setLogger(logger);
         setCurrentLogger(logger.slice(0,10));      

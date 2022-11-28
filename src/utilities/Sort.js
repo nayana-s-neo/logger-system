@@ -15,13 +15,13 @@
         //sort alphanumeric        
         if(isNaN(a[sortBy]) && isNaN(b[sortBy]))
         {
-            if(order == 'asc')
+            if(order === 'asc')
             return  a[sortBy].toLowerCase() > b[sortBy].toLowerCase() ? 1 : -1;
             else
             return  a[sortBy].toLowerCase() > b[sortBy].toLowerCase() ? -1 : 1;
         }
         //sort numeric
-        if(order == 'asc')  
+        if(order === 'asc')  
             return  a[sortBy] > b[sortBy] ? 1 : -1;
         else
             return  a[sortBy] > b[sortBy] ? -1 : 1;
@@ -33,7 +33,7 @@
     let sort = 'desc';
     if(event.target.querySelector('span'))
     {
-        if((event.target.querySelector('span').getAttribute("class") == "glyphicon glyphicon-sort-by-attributes"))
+        if((event.target.querySelector('span').getAttribute("class") === "glyphicon glyphicon-sort-by-attributes"))
         {
         event.target.querySelector('span').setAttribute("class","glyphicon glyphicon-sort-by-attributes-alt");
         }       
@@ -44,7 +44,7 @@
         } 
     }
     else{
-        if((event.target.getAttribute("class") == "glyphicon glyphicon-sort-by-attributes"))
+        if((event.target.getAttribute("class") === "glyphicon glyphicon-sort-by-attributes"))
         {
         event.target.setAttribute("class","glyphicon glyphicon-sort-by-attributes-alt");
         }
