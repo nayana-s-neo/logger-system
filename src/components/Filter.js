@@ -34,13 +34,12 @@ function Filter({applicationTypes, actionTypes, resetSearch, getNewDate}) {
             </div>
             <div className="m-2">
               <label>Application Type</label>
-              <select name="applicationType" defaultValue={query.get('applicationType')} data-testid="application-type"  className="form-control" onChange={() => resetSearch}>
+              <select name="applicationType" defaultValue={query.get('applicationType')} data-testid="application-type"  className="form-control" onChange={resetSearch}>
                 <option value="">Select Application Type</option>
                 {
-                  
                   applicationTypes.map((item) => {
                     return(
-                      <option key={item} value={item} >{item}</option>
+                      <option key={item} value={item}>{item}</option>
                     )
                   })
                 }
